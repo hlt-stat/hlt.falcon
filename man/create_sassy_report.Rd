@@ -11,7 +11,8 @@ create_sassy_report(
   page_header,
   page_footer,
   headers,
-  column_labels
+  column_labels,
+  file = "fda-table-22.rtf"
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ create_sassy_report(
 \item{headers}{The headers for the spanning columns.}
 
 \item{column_labels}{The labels for the columns.}
+
+\item{file}{The file name for the report. Default is "fda-table-22.rtf".}
 }
 \value{
 The path of the created report.
