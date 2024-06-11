@@ -3,6 +3,8 @@
 export("%>%")
 export(a_count_occurrences_trtem_ae)
 export(create_sassy_report)
+export(create_sassy_report_03)
+export(create_table_03)
 export(create_table_22)
 export(load_libraries_and_data)
 importFrom(dplyr,arrange)

@@ -2,23 +2,24 @@
 % Please edit documentation in R/falcon22.R
 \name{create_table_22}
 \alias{create_table_22}
-\title{Create Table 22}
+\title{Create Demographic Table}
 \usage{
 create_table_22(df, adsl)
 }
 \arguments{
-\item{df}{The input dataframe.}
+\item{df}{The input dataframe containing the raw data.}
 
-\item{adsl}{The ADSL dataframe.}
+\item{adsl}{The ADSL dataframe containing the subject-level analysis data.}
 }
 \value{
-A dataframe that represents Table 22.
+A dataframe that represents the demographic table.
 }
 \description{
-This function creates Table 22, which is a demographic table in clinical trial reports.
+This function creates a demographic table for clinical trial reports, often referred to as Table 22.
+It uses the `make_table_22` function from the `falcon` package, which is not exported and therefore accessed directly.
 }
 \examples{
 \dontrun{
-table_22 <- create_table_22(df, adsl)
+demographic_table <- create_table_22(df, adsl)
 }
 }

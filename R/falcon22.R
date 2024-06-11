@@ -93,20 +93,21 @@ load_libraries_and_data <- function() {
   list(df = df, adsl = adsl)
 }
 
-#' Create Table 22
+#' Create Demographic Table
 #'
-#' This function creates Table 22, which is a demographic table in clinical trial reports.
+#' This function creates a demographic table for clinical trial reports, often referred to as Table 22.
+#' It uses the `make_table_22` function from the `falcon` package, which is not exported and therefore accessed directly.
 #'
-#' @param df The input dataframe.
-#' @param adsl The ADSL dataframe.
-#' @return A dataframe that represents Table 22.
+#' @param df The input dataframe containing the raw data.
+#' @param adsl The ADSL dataframe containing the subject-level analysis data.
+#' @return A dataframe that represents the demographic table.
 #' @export
 #' @examples
 #' \dontrun{
-#' table_22 <- create_table_22(df, adsl)
+#' demographic_table <- create_table_22(df, adsl)
 #' }
 create_table_22 <- function(df, adsl) {
-  tbl <- falcon::make_table_22(df = df, alt_counts_df = adsl, denom = "N_s")
+  tbl <- get("make_table_22", envir = asNamespace("falcon"), inherits = FALSE)(df = df, alt_counts_df = adsl, denom = "N_s")
   ft <- rtables::tt_to_flextable(tbl)
   df_tbl <- ft$body$dataset
 
@@ -142,6 +143,7 @@ create_table_22 <- function(df, adsl) {
 #'   column_labels
 #' )
 #' }
+
 create_sassy_report <- function(df_tbl, titles, footnotes, page_header, page_footer, headers,column_labels, file = "fda-table-22.rtf") {
   tbl <- reporter::create_table(df_tbl, first_row_blank = TRUE, borders = "bottom") %>%
     reporter::column_defaults(from = "V1", to = "V4", align = "left", width = 1.5) %>%
