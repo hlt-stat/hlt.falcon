@@ -18,4 +18,8 @@ Imports:
     reporter,
     magrittr,
     rtables,
-    falcon
+    falcon,
+    checkmate,
+    haven
+Depends: 
+    R (>= 2.10)
